@@ -1,3 +1,4 @@
+require_relative "../lib/helper.rb"
 require_relative "../lib/car"
 require_relative "../lib/customer.rb"
 require_relative "../lib/services.rb"
@@ -8,12 +9,12 @@ require 'pry'
 
 
 norman = Manager.new("norman")
-worker1 = norman.new_hire("worker1")
+wing = norman.new_hire("wing")
 kenny = Customer.new("kenny", "oil change")
 kenny.add_car("2001", "honda", "prelude")
 kenny.add_car("2004", "mazda", "rx-8")
 norman.assign_job
-
+welcome
 
 
 binding.pry

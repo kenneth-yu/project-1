@@ -5,7 +5,8 @@ class Customer
   attr_reader :name
 
   def initialize(name, reason)
-    @reason = ""
+    @name = name
+    @reason = reason
     #@car = [] dont store relationship here
     @@all << self
   end
@@ -14,7 +15,7 @@ class Customer
     Car.new(year, make, model, self)
   end
 
-  def place_in_line 
+  def place_in_line
   end
 
   def self.all #returns all customers

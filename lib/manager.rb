@@ -1,6 +1,8 @@
 class Manager
   @@all = []
 
+  attr_reader :name
+  
   def initialize(name)
     @name = name
     @@all << self
@@ -11,7 +13,6 @@ class Manager
       user_input = gets.chomp
       new_hire (user_input)
   end
-
 
 
   def new_hire (name)
