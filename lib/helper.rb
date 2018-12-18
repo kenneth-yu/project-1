@@ -14,20 +14,27 @@ def welcome_check (input, counter)
     else
       puts "Welcome! Are you a new or old customer?"
       response = gets.chomp
-      new_or_old(response, counter)
+      return new_or_old(response, counter)
     end
   elsif input == '2'
     puts "Welcome! Which Mechanic are you?"
     response = gets.chomp
     found_mechanic = Mechanic.all.find do |mechanic|
-      mechanic.name == response
+       mechanic.name == response
     end
+    puts "Profile Found!"
+    return found_mechanic
+    #ADD FUNCTIONALITY
   elsif input == '3'
     puts "Welcome! Which Manager are you?"
     response = gets.chomp
     found_manager = Manager.all.find do |manager|
       manager.name == response
     end
+    binding.pry
+    puts "Profile Found!"
+    return found_manager
+    #ADD FUNCTIONALITY
   else
     puts "Invalid entry! Please type '1', '2', or '3'!"
   end
@@ -41,12 +48,18 @@ def new_or_old (response, counter)
     puts "What is your reason for visit?"
     reason = gets.chomp
     #CREATE NEW CUSTOMER OBJECT USING CL INPUTS
+    puts "Profile Created!"
     Customer.new(name,reason)
   elsif response == "old"
     puts "Welcome back! What is your name?"
     name = gets.chomp
     puts "What is the reason for your visit?"
     reason = gets.chomp
+    found_customer = Customer.all.find do |customer|
+       customer.name == name
+    end
+    puts "Profile Found!"
+    found_customer
     #ADD QUERY FOR NAME AND ADD REASON FOR VISIT
   else
     puts "Invalid entry! Please type 'new' or 'old'!"
