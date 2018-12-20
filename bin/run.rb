@@ -1,3 +1,4 @@
+require 'tty-prompt'
 require_relative "../lib/helper.rb"
 require_relative "../lib/car"
 require_relative "../lib/customer.rb"

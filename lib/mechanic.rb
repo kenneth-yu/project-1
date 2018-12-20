@@ -38,7 +38,6 @@ class Mechanic
     end
   end
 
-
   def work
     completed_job = Job.current_jobs.find do |job|
       if self == job.mechanic
@@ -48,6 +47,12 @@ class Mechanic
     end
     Job.current_jobs.delete(completed_job)
   end
+
+  def help
+    puts "These are the functions you can call as a Mechanic:"
+    Mechanic.instance_methods(false)
+  end
+
 
   def self.all
     @@all
